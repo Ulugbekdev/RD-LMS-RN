@@ -1,0 +1,12 @@
+{
+    "root": true,
+    "extends": "@react-native-community",
+    "rules": {
+        "prettier/prettier": "off",
+        "quotes": ["error", "single"],
+        "no-trailing-spaces": "off",
+        "react-hooks/exhaustive-deps": "off",
+        "react-native/no-inline-styles": "off",
+        "react/no-unstable-nested-components": "off"
+    }
+}
