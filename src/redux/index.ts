@@ -5,6 +5,7 @@ import userReducer from './reducers/userSlice';
 import navigateReducer from './reducers/navigateSlice';
 import groupsReducer from './reducers/groupsSlice';
 import calendarReducer from './reducers/calendarSlice';
+import filterReducer from './reducers/filterSlice';
 
 export const store = configureStore({
     reducer: {
@@ -13,6 +14,7 @@ export const store = configureStore({
         navigateReducer,
         groupsReducer,
         calendarReducer,
+        filterReducer,
     },
 });
 

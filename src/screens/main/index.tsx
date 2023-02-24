@@ -1,7 +1,7 @@
 //react
 import React, { useCallback } from 'react';
 //react-native
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import { useFocusEffect } from '@react-navigation/native';
 //redux
@@ -12,9 +12,11 @@ import { removeGroups } from '../../redux/reducers/groupsSlice';
 import { colors, fonts } from '../../constants';
 //components
 import { Snipper } from '../../components/snipper';
+import { useAppNavigation } from '../../hooks/navigationHooks';
 
 export const MainScreen = () => {
     const dispatch = useAppDispatch();
+    const navigation = useAppNavigation();
     const groups = useAppSelector(state => state.groupsReducer.groups);
 
     useFocusEffect(
@@ -27,22 +29,27 @@ export const MainScreen = () => {
         }, [])
     );
 
-    return groups && groups.length > 0
-        ? (
-            <View style={styles.group}>
-                <Text style={styles.group__title}>Groups</Text>
-                <FlatList
-                    data={groups}
-                    keyExtractor={(group) => group.id.toString()}
-                    renderItem={({ item }) => (
-                        <View style={styles.group__item}>
-                            <Text style={styles.group__name}>{item.name}</Text>
-                        </View>
-                    )}
-                />
-            </View>
-        )
-        : <Snipper />;
+    return (
+        <View style={styles.group}>
+            <Text style={styles.group__title}>Groups</Text>
+            {
+                groups && groups.length > 0
+                    ? <FlatList
+                        data={groups}
+                        keyExtractor={(group) => group.id.toString()}
+                        renderItem={({ item }) => (
+                            <TouchableOpacity
+                                style={styles.group__item}
+                                onPress={() => navigation.navigate('groupStudents', { id: item.id.toString() })}
+                            >
+                                <Text style={styles.group__name}>{item.name}</Text>
+                            </TouchableOpacity>
+                        )}
+                    />
+                    : <Snipper />
+            }
+        </View>
+    );
 };
 
 const styles = StyleSheet.create({

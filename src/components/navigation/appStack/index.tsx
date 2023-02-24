@@ -12,6 +12,7 @@ import { ProfileScreen } from '../../../screens/profile';
 import { colors, fonts } from '../../../constants';
 import { CalendarScreen } from '../../../screens/calendar';
 import { VisitedsScreen } from '../../../screens/visiteds';
+import { GroupStudentsScreen } from '../../../screens/groupStudents';
 
 const Drawer = createDrawerNavigator<AppStackNavigatorParamList>();
 
@@ -30,7 +31,7 @@ export const AppStack = () => {
                     fontFamily: fonts.montserratSemibold,
                 },
                 drawerInactiveTintColor: colors.white,
-                swipeEdgeWidth: 200,
+                swipeEdgeWidth: 100,
                 swipeMinDistance: 10,
             }}
             initialRouteName={'main'}
@@ -70,6 +71,15 @@ export const AppStack = () => {
                     },
                 }}
                 component={VisitedsScreen}
+            />
+            <Drawer.Screen
+                name={'groupStudents'}
+                options={{
+                    drawerItemStyle: {
+                        display: 'none',
+                    },
+                }}
+                component={GroupStudentsScreen}
             />
         </Drawer.Navigator>
     );

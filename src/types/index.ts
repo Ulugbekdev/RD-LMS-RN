@@ -113,3 +113,63 @@ export type CalendarVisitType = {
     student_name: string
     visited: boolean
 }[]
+
+export type StudentAndMentorDataType = {
+    id: number
+    first_name: string
+    last_name: string
+    status: string
+}
+
+export interface StudentsDataType extends StudentAndMentorDataType { }
+
+export interface MentorsDataType extends StudentAndMentorDataType {
+    subjects: {
+        id: number
+        name: string
+    }[]
+}
+
+export type FoundUserType = {
+    id: number
+    image: string
+    first_name: string
+    last_name: string
+    phone_num: number
+}
+
+export type SelectUserDataType = {
+    id: number
+    first_name: string
+    last_name: string
+    phone_num: string
+    status: string
+    image: string
+    branch: number
+    rooms: number[]
+    mentors: number[]
+    managers: number[]
+    subjects: number[]
+    subject_names: string[]
+    group_names: string[]
+    branch_names: string[]
+    branch_name: string
+    username: string
+}
+
+export type FilterUsersFormikValuesType = {
+    status: StatusRankEnum
+    subject: string
+    group: string
+}
+
+export interface ValidateType {
+    [key: string]: string
+}
+
+export type ResponsePaginationType<T = any> = {
+    count: number
+    next: string
+    previous: string
+    results: T
+}

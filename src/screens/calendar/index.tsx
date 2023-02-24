@@ -27,7 +27,7 @@ export const CalendarScreen = () => {
     useFocusEffect(
         useCallback(() => {
             dispatch(getCalendarsTableThunk());
-
+            
             return () => {
                 dispatch(removeCalendarsTable());
             };

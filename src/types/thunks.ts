@@ -1,5 +1,6 @@
 //react
 import { Dispatch, SetStateAction } from 'react';
+import { ValidateType } from '.';
 //redux
 import { AppDispatch } from '../redux';
 //navigation types
@@ -15,4 +16,9 @@ export type SendStudentsVisitedThunkType = ThunkType<{
     student_visits: number[]
     setLoading: Dispatch<SetStateAction<boolean>>
     navigation: AppScreenNavigationProp
+}>
+
+export type SendFilterUsersThunkType = ThunkType<{
+    data: ValidateType
+    page?: string
 }>

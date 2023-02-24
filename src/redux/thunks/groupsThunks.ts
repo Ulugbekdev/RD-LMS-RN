@@ -3,7 +3,8 @@ import { api } from '../../api';
 //redux
 import { addGroups } from '../reducers/groupsSlice';
 //types
-import { GroupDataType, ResponseType, ThunkType } from '../../types';
+import { ThunkType } from '../../types/thunks';
+import { GroupDataType, ResponseType } from '../../types';
 //constants
 import { apiUrls } from '../../constants';
 

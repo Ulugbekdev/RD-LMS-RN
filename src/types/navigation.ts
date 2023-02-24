@@ -18,6 +18,9 @@ export type AppStackNavigatorParamList = {
     visiteds: {
         id: string
     }
+    groupStudents: {
+        id: string
+    }
 }
 
 export type AppRoutesKeyType = keyof AppStackNavigatorParamList

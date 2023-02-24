@@ -1,5 +1,5 @@
 //imports
-import { CalendarDataType, CalendarTableType, GroupDataType, ProfileData, StatusRankEnum } from '.';
+import { CalendarDataType, CalendarTableType, FilterUsersFormikValuesType, FoundUserType, GroupDataType, ProfileData, SelectUserDataType, StatusRankEnum, StudentsDataType } from '.';
 
 export type ErrorSliceStateType = {
     message: string
@@ -23,4 +23,16 @@ export type GroupsStateType = {
 export type CalendarStateType = {
     calendarsTable: CalendarTableType
     calendarStudents?: CalendarDataType
+}
+
+export type StudentsStateType = {
+    students: StudentsDataType[]
+}
+
+export type FilterStateType = {
+    foundUsers?: FoundUserType[]
+    selectUserData?: SelectUserDataType | null
+    prevFilterData?: FilterUsersFormikValuesType | {}
+    selectStatus?: StatusRankEnum
+    count?: number
 }
