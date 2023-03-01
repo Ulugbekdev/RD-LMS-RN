@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { useAsyncStorage } from '@react-native-async-storage/async-storage';
 //redux
+import { getStatusThunk } from '../../redux/thunks/userThunks';
 import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks';
 import { changeTokenExpared } from '../../redux/reducers/navigateSlice';
 //components
@@ -27,6 +28,7 @@ export const Navigation = () => {
         
         if (item || isEntered && !isExpered) {
             setIsAuth(true);
+            dispatch(getStatusThunk());
         } else {
             setIsAuth(false);
             dispatch(changeTokenExpared(false));

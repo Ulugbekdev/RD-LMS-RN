@@ -7,7 +7,7 @@ import { useFocusEffect } from '@react-navigation/native';
 //redux
 import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks';
 import { getProfileDataThunk } from '../../redux/thunks/userThunks';
-import { removeProfileData } from '../../redux/reducers/userSlice';
+// import { removeProfileData } from '../../redux/reducers/userSlice';
 //constants
 import { apiUrls, colors, fonts } from '../../constants';
 //components
@@ -21,9 +21,9 @@ export const ProfileScreen = () => {
         useCallback(() => {
             dispatch(getProfileDataThunk());
 
-            return () => {
-                dispatch(removeProfileData());
-            };
+            // return () => {
+            //     dispatch(removeProfileData());
+            // };
         }, [])
     );
 

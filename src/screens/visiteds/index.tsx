@@ -45,6 +45,9 @@ export const VisitedsScreen = () => {
             if (calendarStudents) {
                 setListVisits(calendarStudents.student_visits);
             }
+            return () => {
+                setListVisits([]);
+            };
         }, [calendarStudents])
     );
 
@@ -74,9 +77,8 @@ export const VisitedsScreen = () => {
 
     return (
         <View style={styles.visiteds}>
-            <Text style={styles.visiteds__title}>Mark visits</Text>
             {
-                listVisits
+                listVisits && listVisits.length > 0
                     ? <FlatList
                         data={listVisits}
                         keyExtractor={(item) => item.student_id.toString()}
@@ -109,12 +111,6 @@ const styles = StyleSheet.create({
         paddingVertical: 15,
         paddingHorizontal: 10,
         backgroundColor: colors.white,
-    },
-    visiteds__title: {
-        fontSize: 24,
-        paddingVertical: 10,
-        color: colors.black,
-        fontFamily: fonts.montserratBold,
     },
     visiteds__btn: {
         padding: 10,

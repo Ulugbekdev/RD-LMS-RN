@@ -13,6 +13,7 @@ import { colors, fonts } from '../../../constants';
 import { CalendarScreen } from '../../../screens/calendar';
 import { VisitedsScreen } from '../../../screens/visiteds';
 import { GroupStudentsScreen } from '../../../screens/groupStudents';
+import { Header } from './customHeader';
 
 const Drawer = createDrawerNavigator<AppStackNavigatorParamList>();
 
@@ -21,7 +22,8 @@ export const AppStack = () => {
         <Drawer.Navigator
             drawerContent={(props) => <CustomDrawer {...props} />}
             screenOptions={{
-                headerShown: false,
+                header: (props) => <Header {...props}/>,
+                headerShown: true,
                 drawerActiveBackgroundColor: '#474866',
                 drawerActiveTintColor: colors.white,
                 drawerLabelStyle: {
@@ -40,6 +42,7 @@ export const AppStack = () => {
                 name={'main'}
                 component={MainScreen}
                 options={{
+                    title: 'Groups',
                     drawerIcon: (props) => (
                         <AntDesignIcons size={20} name={'home'} color={props.color} />
                     ),
@@ -49,6 +52,7 @@ export const AppStack = () => {
                 name={'profile'}
                 component={ProfileScreen}
                 options={{
+                    title: 'Profile',
                     drawerIcon: (props) => (
                         <AntDesignIcons size={20} name={'user'} color={props.color} />
                     ),
@@ -58,6 +62,7 @@ export const AppStack = () => {
                 name={'calendar'}
                 component={CalendarScreen}
                 options={{
+                    title: 'Calendar',
                     drawerIcon: (props) => (
                         <AntDesignIcons size={20} name={'table'} color={props.color} />
                     ),
@@ -66,6 +71,7 @@ export const AppStack = () => {
             <Drawer.Screen
                 name={'visiteds'}
                 options={{
+                    title: 'Mark visits',
                     drawerItemStyle: {
                         display: 'none',
                     },
@@ -75,6 +81,7 @@ export const AppStack = () => {
             <Drawer.Screen
                 name={'groupStudents'}
                 options={{
+                    title: 'Students',
                     drawerItemStyle: {
                         display: 'none',
                     },

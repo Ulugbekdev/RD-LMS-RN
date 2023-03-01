@@ -7,7 +7,7 @@ import { useFocusEffect } from '@react-navigation/native';
 //redux
 import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks';
 import { getGroupsThunk } from '../../redux/thunks/groupsThunks';
-import { removeGroups } from '../../redux/reducers/groupsSlice';
+// import { removeGroups } from '../../redux/reducers/groupsSlice';
 //constants
 import { colors, fonts } from '../../constants';
 //components
@@ -23,15 +23,14 @@ export const MainScreen = () => {
         useCallback(() => {
             dispatch(getGroupsThunk());
 
-            return () => {
-                dispatch(removeGroups());
-            };
+            // return () => {
+            //     dispatch(removeGroups());
+            // };
         }, [])
     );
 
     return (
         <View style={styles.group}>
-            <Text style={styles.group__title}>Groups</Text>
             {
                 groups && groups.length > 0
                     ? <FlatList
@@ -57,12 +56,6 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 10,
         backgroundColor: colors.white,
-    },
-    group__title: {
-        fontSize: 22,
-        paddingBottom: 10,
-        color: colors.black,
-        fontFamily: fonts.montserratBold,
     },
     group__item: {
         marginTop: 15,

@@ -5,6 +5,7 @@ import React, { useCallback } from 'react';
 import { FlatList, Text, View, StyleSheet } from 'react-native';
 //redux
 import { sendFilterUsersThunk } from '../../redux/thunks/filter';
+import { removeFoundUsers } from '../../redux/reducers/filterSlice';
 //custom hooks
 import { useAppRoute } from '../../hooks/navigationHooks';
 import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks';
@@ -32,12 +33,14 @@ export const GroupStudentsScreen = () => {
                     },
                 }));
             }
+            return () => {
+                dispatch(removeFoundUsers());
+            };
         }, [params])
     );
 
     return (
         <View style={styles.groupStudents}>
-            <Text style={styles.groupStudents__title}>Students</Text>
             {
                 foundUsers && foundUsers.length > 0
                     ? <FlatList 
@@ -60,12 +63,6 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingHorizontal: 10,
         backgroundColor: colors.white,
-    },
-    groupStudents__title: {
-        fontSize: 22,
-        paddingVertical: 10,
-        color: colors.black,
-        fontFamily: fonts.montserratBold,
     },
     groupStudents__item: {
         paddingVertical: 10,

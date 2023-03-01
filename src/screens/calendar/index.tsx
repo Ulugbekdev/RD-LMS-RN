@@ -36,7 +36,7 @@ export const CalendarScreen = () => {
 
     return (
         <View style={styles.timeTable}>
-            <Text style={styles.timeTable__title}>Calendar {moment().format('MMMM')}</Text>
+            <Text style={styles.timeTable__title}>{moment().format('MMMM')}</Text>
             <View style={styles.timeTable__panel}>
                 <FlatList
                     horizontal

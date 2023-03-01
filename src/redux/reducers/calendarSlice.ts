@@ -27,7 +27,7 @@ const calendarSlice = createSlice({
             state.calendarStudents = action.payload.calendarStudents;
         },
         removeCalendarsTable: (state) => {
-            state.calendarsTable = initialState.calendarsTable;
+            state.calendarsTable = {...initialState.calendarsTable};
         },
         removeCalendarStudents: (state) => {
             state.calendarStudents = undefined;
